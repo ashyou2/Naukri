@@ -37,7 +37,7 @@ mob = constants.MOBILE
 updatePDF = False
 
 # If Headless = True, script runs Chrome in headless mode without visible GUI
-headless = False
+headless = True
 
 # ----- No other changes required -----
 
@@ -229,8 +229,9 @@ def LoadNaukri(headless):
     options.add_argument("--disable-popups")
     options.add_argument("--disable-gpu")
     if headless:
+        options.add_argument("--headless")
+        options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
-        options.add_argument("headless")
 
     # updated to use latest selenium Chrome service
     driver = None
