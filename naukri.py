@@ -307,10 +307,13 @@ def naukriLogin(headless=False):
                     return (status, driver)
                 else:
                     log_msg("Unknown Login Error")
+                    driver.save_screenshot("login_failed.png")
+                    log_msg("Screenshot saved as login_failed.png")
                     return (status, driver)
             else:
                 log_msg("Unknown Login Error")
-                return (status, driver)
+                driver.save_screenshot("login_failed.png")
+                log_msg("Screenshot saved as login_failed.png - Check for CAPTCHA or error message")
 
     except Exception as e:
         catch(e)
