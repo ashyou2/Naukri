@@ -32,3 +32,11 @@ jobs:
           NAUKRI_PASSWORD: ${{ secrets.NAUKRI_PASSWORD }}
           NAUKRI_MOBILE: ${{ secrets.NAUKRI_MOBILE }}
         run: python naukri.py
+
+      - name: Upload debug screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-screenshot
+          path: login_failed.png
+          if-no-files-found: ignore
